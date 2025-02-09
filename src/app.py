@@ -36,9 +36,10 @@ async def get_assets_in_price_range(range: Range, session = Depends(get_db), tok
     from_ = int(range.title().split('...')[0])
     to = int(range.title().split('...')[1])
     try:
-        result = await ProgramRepository.filter_progs(from_, to)
+        result = await ProgramRepository.filter_progs(from_, to, session)
         return {"result": result}
-    except:
+    except Exception as e:
+        print(e)
         raise HTTPException(404, 'Invalid request')
     
 
