@@ -1,7 +1,7 @@
-from data.config import settings
-from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
-from database.models import Program, User
 from sqlalchemy import select
+from data.config import settings
+from database.models import Program, User
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 
 
 engine = create_async_engine(url=settings.DB_URI.get_secret_value())
