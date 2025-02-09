@@ -7,6 +7,7 @@ from database.core import AsyncSession
 from passlib.context import CryptContext
 from fastapi.exceptions import HTTPException
 from datetime import datetime, timedelta, timezone
+from database.core import UserRepository
 
 
 def create_access_token(data: dict) -> str:
@@ -39,8 +40,7 @@ async def check_token(request: Request):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Token expired')
     
 
-async def authenticate_user(username: str, password: str, session: AsyncSession) -> User:
-    user = (await session.execute(select(User).where(User.username == username))).scalar_one_or_none()
-    if not user or not verify_password(plain_password=password, hashed_password=user.password):
+async def authenticate_user(password: str, hashed_password: str,  session: AsyncSession) -> User:
+    if not verify_password(plain_password=password, hashed_password=hashed_password):
         return None
-    return user
+    return 'Success'
