@@ -1,0 +1,24 @@
+{
+  "locale": "en-US",
+  "debug": false,
+  "tab": "default",
+  "referrer": "default",
+  "timezone": "Europe/Moscow",
+  "visitorId": "6dc849df-aeba-497c-b5ab-d3463c40904d",
+  "context": {
+    "website": "assetstore",
+    "language": "en-US",
+    "engineUniqueId": "Assetstore_Search"
+  },
+  "numberOfResults": 108027,
+  "fieldsToInclude": [
+    "author",
+    "language",
+    "urihash",
+    "objecttype",
+    "collection",
+    "source",
+    "ec_price",
+    "ec_name"
+  ]
+}

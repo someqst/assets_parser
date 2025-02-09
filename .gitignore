@@ -1,0 +1,5 @@
+**/__pycache__
+.venv/
+.env
+/src/scrapers/selenium_scrape/chrome
+/src/scrapers/selenium_scrape/chrome_driver
