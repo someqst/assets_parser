@@ -31,7 +31,7 @@ class ProgramRepository:
 
     @classmethod
     async def select_asset_by_id(cls, asset_id, session: AsyncSession) -> Program | None:
-        return (await session.execute(select(Program).where(Program.id == id))).scalar_one_or_none()
+        return (await session.execute(select(Program).where(Program.id == asset_id))).scalar_one_or_none()
     
 
 class UserRepository:
