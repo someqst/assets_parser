@@ -6,8 +6,6 @@ from database.core import get_db, AsyncSession, UserRepository
 from auth.utils import get_password_hash, authenticate_user, create_access_token
 
 
-
-
 logger.add('src/logs/auth.log', format="{time} {level} {message}\n", rotation='500MB', level="INFO", enqueue=True)
 router = APIRouter()
 

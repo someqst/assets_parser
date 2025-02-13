@@ -11,12 +11,12 @@ async def get_assets(number_of_results: int):
         results_path = os.path.join(os.getcwd(), 'src', 'scrapers', 'parse_results', 'result_post.json')
         payload_path = os.path.join(os.getcwd(), 'src', 'scrapers', 'payload.json')
         async with ClientSession(headers=headers) as session:
-            async with aiofiles.open('src/scrapers/payload.json', 'r', encoding='utf-8') as file:
+            async with aiofiles.open(payload_path, 'r', encoding='utf-8') as file:
                 payload = json.loads((await file.read()))
                 payload["numberOfResults"] = number_of_results
             async with session.post(url="https://unitytechnologiesproductionmkahteav.org.coveo.com/rest/search/v2?organizationId=unitytechnologiesprod", json=payload) as resp:
                 if resp.status == 200:
-                    async with aiofiles.open('src/scrapers/parse_results/result_post.json', 'w', encoding='utf-8') as file:
+                    async with aiofiles.open(results_path, 'w', encoding='utf-8') as file:
                         await file.write(await resp.text())
                 else:
                     return

@@ -6,7 +6,6 @@ class Base(DeclarativeBase):
     pass
 
 
-
 class Program(Base):
     __tablename__ = 'programs'
     id = mapped_column(BigInteger, primary_key=True, unique=True, index=True)
