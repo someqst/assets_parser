@@ -1,5 +1,4 @@
 from jose import jwt
-from sqlalchemy import select
 from database.models import User
 from fastapi import status, Request
 from data.config import get_auth_data
@@ -7,7 +6,6 @@ from database.core import AsyncSession
 from passlib.context import CryptContext
 from fastapi.exceptions import HTTPException
 from datetime import datetime, timedelta, timezone
-from database.core import UserRepository
 
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
